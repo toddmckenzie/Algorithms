@@ -2,12 +2,12 @@
 
 import math
 
-total = 0
-def recipe_batches(recipe, ingredients):
-  global total
-  for k,v in recipe.items():
-    if k not in ingredients.keys():
-      return total
+
+def recipe_batches(recipe, ingredients, total=0):
+  if total == 0:
+    for k,v in recipe.items():
+      if k not in ingredients.keys():
+        return total
 
   for k,v in ingredients.items():
     if k in recipe.keys():
@@ -15,9 +15,9 @@ def recipe_batches(recipe, ingredients):
         ingredients[k] = v - recipe[k] 
       else:
         return total
-  print(ingredients)
+  
   total += 1
-  return recipe_batches(recipe, ingredients)
+  return recipe_batches(recipe, ingredients, total)
 
 # if __name__ == '__main__':
 #   # Change the entries of these dictionaries to test 
@@ -34,3 +34,4 @@ def recipe_batches(recipe, ingredients):
 # print(recipe_batches({ 'milk': 100, 'flour': 4, 'sugar': 10, 'butter': 5 }, { 'milk': 1288, 'flour': 9, 'sugar': 95 })) 
 # print(recipe_batches({'milk': 100, 'flour': 4, 'sugar': 10, 'butter': 5 }, { 'milk': 1288, 'flour': 9, 'sugar': 95 , 'butter': 25}))
 # print(recipe_batches({ 'milk': 2, 'sugar': 40, 'butter': 20 }, { 'milk': 5, 'sugar': 120, 'butter': 500 }))
+# print(recipe_batches({ 'milk': 100, 'flour': 4, 'sugar': 10, 'butter': 5 }, { 'milk': 1288, 'flour': 9, 'sugar': 95 }))
