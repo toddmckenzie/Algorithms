@@ -1,2 +1,2 @@
 
-    # self.assertEqual(making_change(300, self.denominations), 9590)
+#   if amount == 0:
