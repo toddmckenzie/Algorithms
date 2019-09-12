@@ -3,7 +3,17 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  choices = ['rock', 'paper', 'scissors']
+  options = []
+  def inner(n, items=[]):
+    if n == 0:
+      return options.append(items)
+    for i in choices:
+      inner(n-1, items + [i])
+  
+  inner(n, [])
+  return options
+
 
 
 if __name__ == "__main__":
